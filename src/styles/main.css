@@ -128,6 +128,19 @@ html.dark .nav-scrolled {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Logo */
+.logo-mark {
+  color: var(--color-zinc-900);
+}
+
+html.dark .logo-mark {
+  color: var(--color-zinc-100);
+}
+
+html.dark .logo-mark text {
+  fill: var(--color-zinc-900);
+}
+
 /* Nav link hover underline */
 .nav-link {
   position: relative;

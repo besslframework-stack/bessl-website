@@ -7,8 +7,8 @@ const { size = 'md' } = Astro.props;
 const dims = size === 'sm' ? { w: 24, h: 24, rx: 5, fontSize: 14, dy: 17 } : { w: 28, h: 28, rx: 6, fontSize: 16, dy: 19.5 };
 ---
 
-<svg width={dims.w} height={dims.h} viewBox={`0 0 ${dims.w} ${dims.h}`} fill="none" aria-hidden="true">
-  <rect width={dims.w} height={dims.h} rx={dims.rx} fill="#2563EB"/>
+<svg class="logo-mark" width={dims.w} height={dims.h} viewBox={`0 0 ${dims.w} ${dims.h}`} fill="none" aria-hidden="true">
+  <rect width={dims.w} height={dims.h} rx={dims.rx} fill="currentColor"/>
   <text
     x="50%"
     y={dims.dy}
