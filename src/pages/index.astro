@@ -51,14 +51,6 @@ const otherProducts = [
   },
 ];
 
-const timeline = [
-  { date: '2025 Q3', event: 'BESSL founded. Started building internal tools with Claude.' },
-  { date: '2025 Q4', event: 'Claudel v1 launched — GUI for Claude Code with task orchestration.' },
-  { date: '2026 Q1', event: 'Unask launched — AI mom-test simulator. LocalPDF shipped as a side project.' },
-  { date: '2026 Q1', event: 'Design Forge & Tether enter development. CarQuick in research phase.' },
-  { date: 'Now', event: '6 products. 3 live, 2 in development, 1 in planning.' },
-];
-
 const techStack = [
   { name: 'TypeScript', use: 'Primary language' },
   { name: 'React', use: 'UI framework' },
@@ -173,24 +165,37 @@ const techStack = [
     </div>
   </section>
 
-  <!-- Timeline -->
+  <!-- Philosophy -->
   <section id="philosophy" class="max-w-5xl mx-auto px-6 py-16">
-    <h2 class="section-title font-heading text-2xl font-bold mb-8 reveal">Timeline</h2>
+    <h2 class="section-title font-heading text-2xl font-bold mb-8 reveal">Philosophy</h2>
 
-    <div class="relative reveal">
-      <!-- Vertical line -->
-      <div class="absolute left-[7px] top-2 bottom-2 w-px bg-zinc-200 dark:bg-zinc-800" aria-hidden="true"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="glass-card p-6 reveal" style="transition-delay: 0ms">
+        <h3 class="font-heading font-bold mb-3">AI가 보조가 아니라 구조다</h3>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          챗봇을 붙이는 게 아니라, AI 없으면 성립하지 않는 제품만 만든다. Claudel은 AI 에이전트 오케스트레이션이 핵심이고, Unask는 AI 페르소나가 제품 그 자체다.
+        </p>
+      </div>
 
-      <div class="space-y-6">
-        {timeline.map((item, i) => (
-          <div class="flex gap-4 items-start" style={`transition-delay: ${i * 60}ms`}>
-            <div class={`w-[15px] h-[15px] rounded-full flex-shrink-0 mt-1 border-2 ${item.date === 'Now' ? 'bg-blue-500 border-blue-500' : 'bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-600'}`} aria-hidden="true"></div>
-            <div>
-              <span class={`font-heading text-xs font-bold uppercase tracking-wider ${item.date === 'Now' ? 'text-blue-600 dark:text-blue-400' : 'text-zinc-400 dark:text-zinc-500'}`}>{item.date}</span>
-              <p class="text-sm text-zinc-700 dark:text-zinc-300 mt-0.5">{item.event}</p>
-            </div>
-          </div>
-        ))}
+      <div class="glass-card p-6 reveal" style="transition-delay: 60ms">
+        <h3 class="font-heading font-bold mb-3">혼자서도 충분하다</h3>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          팀이 없으면 못 만든다는 건 옛날 얘기다. 좋은 도구와 명확한 스코프가 있으면 한 사람이 여러 제품을 운영할 수 있다. 의사결정이 빠르고, 타협이 없다.
+        </p>
+      </div>
+
+      <div class="glass-card p-6 reveal" style="transition-delay: 120ms">
+        <h3 class="font-heading font-bold mb-3">진짜 문제만 푼다</h3>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          "있으면 좋겠다"가 아니라 "없으면 안 된다"를 찾는다. CarQuick은 정비 가격이 불투명해서 시작했고, Unask는 유저 인터뷰가 너무 비싸서 만들었다.
+        </p>
+      </div>
+
+      <div class="glass-card p-6 reveal" style="transition-delay: 180ms">
+        <h3 class="font-heading font-bold mb-3">빠르게 내보내고, 빠르게 배운다</h3>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          완벽하게 만들어서 출시하는 게 아니라, 작동하는 걸 먼저 내보낸다. 실제 사용 데이터가 회의실 토론보다 낫다. 반응이 없으면 빠르게 접는다.
+        </p>
       </div>
     </div>
   </section>
