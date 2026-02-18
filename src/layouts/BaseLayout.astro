@@ -1,0 +1,73 @@
+---
+import '../styles/main.css';
+import Navbar from '../components/Navbar.astro';
+import MobileNav from '../components/MobileNav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonical = Astro.url.href;
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BESSL",
+  "url": "https://bessl.co",
+  "description": "AI-powered product development studio. Building excellence through software and smart living.",
+  "foundingDate": "2025",
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="BESSL" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('bessl-theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+  </head>
+  <body class="min-h-screen">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-blue-600 focus:text-white focus:rounded-lg">
+      Skip to content
+    </a>
+
+    <Navbar />
+    <MobileNav />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script src="../scripts/main.ts"></script>
+  </body>
+</html>

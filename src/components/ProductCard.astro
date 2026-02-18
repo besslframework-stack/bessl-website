@@ -1,0 +1,47 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  status: 'live' | 'dev' | 'planning';
+  href?: string;
+  icon: string;
+}
+
+const { name, description, status, href, icon } = Astro.props;
+
+const statusConfig = {
+  live: { label: 'Live', class: 'badge-live' },
+  dev: { label: 'In Dev', class: 'badge-dev' },
+  planning: { label: 'Planning', class: 'badge-planning' },
+};
+
+const { label, class: badgeClass } = statusConfig[status];
+---
+
+<div class="glass-card h-full p-6 flex flex-col">
+  <div class="flex items-center gap-3 mb-4">
+    <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-300 flex-shrink-0" aria-hidden="true" set:html={icon} />
+    <h3 class="font-heading text-base font-bold flex-1">{name}</h3>
+    <span class={`text-[11px] font-medium px-2 py-0.5 rounded-full flex-shrink-0 ${badgeClass}`}>{label}</span>
+  </div>
+
+  <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed flex-1">{description}</p>
+
+  <div class="mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+    {href ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
+      >
+        {href.replace('https://', '').replace(/\/$/, '')}
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+        </svg>
+      </a>
+    ) : (
+      <span class="text-sm text-zinc-400 dark:text-zinc-600">Not yet launched</span>
+    )}
+  </div>
+</div>

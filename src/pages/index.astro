@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const featured = [
+  {
+    name: 'Claudel',
+    tagline: 'GUI for Claude Code',
+    description: 'Multi-task orchestration with Gantt charts, DAG visualization, and parallel execution. Run dozens of Claude agents simultaneously and see their progress in real time.',
+    status: 'live' as const,
+    href: 'https://claudel.app',
+    features: ['Gantt chart task view', 'DAG dependency graph', 'Parallel agent execution', 'Real-time streaming logs'],
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+  },
+  {
+    name: 'Unask',
+    tagline: 'AI mom-test simulator',
+    description: 'Create AI personas that interview like real users. Validate your product assumptions before writing code. Each persona has backstory, pain points, and realistic conversation patterns.',
+    status: 'live' as const,
+    href: 'https://unask.app',
+    features: ['15+ AI persona templates', 'Realistic multi-turn interviews', 'Insight extraction & scoring', 'Export to PRD format'],
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>',
+  },
+];
+
+const otherProducts = [
+  {
+    name: 'Tether',
+    description: 'Keeps Figma, Notion, GitHub, and Linear in sync. Detects when artifacts drift apart and shows you where.',
+    status: 'dev' as const,
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>',
+  },
+  {
+    name: 'LocalPDF',
+    description: 'Merge, split, compress PDFs entirely in your browser. Nothing leaves your machine.',
+    status: 'live' as const,
+    href: 'https://local-pdf-download.netlify.app',
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+  },
+  {
+    name: 'CarQuick',
+    description: 'OBD2 dongle + AI = plain-language car diagnosis with repair cost estimates. Korean market.',
+    status: 'planning' as const,
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 17h2l1-4h8l1 4h2"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M3 11l2-6h14l2 6"/></svg>',
+  },
+  {
+    name: 'Design Forge',
+    description: 'CLI that searches 62 design systems and generates component code for your stack. Zero dependencies.',
+    status: 'dev' as const,
+    icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
+  },
+];
+
+const timeline = [
+  { date: '2025 Q3', event: 'BESSL founded. Started building internal tools with Claude.' },
+  { date: '2025 Q4', event: 'Claudel v1 launched — GUI for Claude Code with task orchestration.' },
+  { date: '2026 Q1', event: 'Unask launched — AI mom-test simulator. LocalPDF shipped as a side project.' },
+  { date: '2026 Q1', event: 'Design Forge & Tether enter development. CarQuick in research phase.' },
+  { date: 'Now', event: '6 products. 3 live, 2 in development, 1 in planning.' },
+];
+
+const techStack = [
+  { name: 'TypeScript', use: 'Primary language' },
+  { name: 'React', use: 'UI framework' },
+  { name: 'Next.js', use: 'Full-stack apps' },
+  { name: 'Astro', use: 'Static sites' },
+  { name: 'Python', use: 'AI/ML scripts' },
+  { name: 'Electron', use: 'Desktop apps' },
+  { name: 'Supabase', use: 'Auth & database' },
+  { name: 'Vercel', use: 'Hosting' },
+  { name: 'Railway', use: 'Backend infra' },
+  { name: 'Tailwind CSS', use: 'Styling' },
+];
+---
+
+<BaseLayout
+  title="BESSL — AI Product Studio"
+  description="One-person studio shipping AI products. Claudel, Unask, Tether, and more."
+>
+  <!-- Hero — compact, information-dense -->
+  <section class="relative hero-grid overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20">
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6">
+      <div class="max-w-2xl">
+        <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-zinc-900 dark:text-zinc-50">
+          One person,<br/>six products.
+        </h1>
+
+        <p class="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-8 max-w-lg">
+          BESSL is a solo AI product studio. I pick real problems, build fast, and ship. Three products are live, two in development, one in research.
+        </p>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="flex flex-wrap gap-x-8 gap-y-3 text-sm reveal">
+        <div>
+          <span class="font-heading text-2xl font-bold text-zinc-900 dark:text-zinc-50">6</span>
+          <span class="text-zinc-500 dark:text-zinc-400 ml-1.5">products</span>
+        </div>
+        <div>
+          <span class="font-heading text-2xl font-bold text-green-600 dark:text-green-400">3</span>
+          <span class="text-zinc-500 dark:text-zinc-400 ml-1.5">live</span>
+        </div>
+        <div>
+          <span class="font-heading text-2xl font-bold text-yellow-600 dark:text-yellow-400">2</span>
+          <span class="text-zinc-500 dark:text-zinc-400 ml-1.5">in development</span>
+        </div>
+        <div>
+          <span class="font-heading text-2xl font-bold text-zinc-400 dark:text-zinc-500">1</span>
+          <span class="text-zinc-500 dark:text-zinc-400 ml-1.5">in research</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products — larger, detailed cards -->
+  <section id="products" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="section-title font-heading text-2xl font-bold mb-8 reveal">Featured</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {featured.map((product, i) => (
+        <div class="glass-card p-6 md:p-8 reveal" style={`transition-delay: ${i * 80}ms`}>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-300 flex-shrink-0" aria-hidden="true" set:html={product.icon} />
+            <h3 class="font-heading text-lg font-bold">{product.name}</h3>
+            <span class="text-[11px] font-medium px-2 py-0.5 rounded-full badge-live flex-shrink-0">Live</span>
+          </div>
+
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-4 ml-12">{product.tagline}</p>
+
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5">
+            {product.description}
+          </p>
+
+          <ul class="grid grid-cols-2 gap-x-4 gap-y-2 mb-5">
+            {product.features.map((f) => (
+              <li class="text-xs text-zinc-600 dark:text-zinc-400 flex items-start gap-1.5">
+                <svg class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={product.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors cursor-pointer"
+          >
+            {product.href.replace('https://', '')}
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Other Products — compact grid -->
+  <section class="max-w-5xl mx-auto px-6 pb-16">
+    <h2 class="section-title font-heading text-lg font-bold mb-6 reveal">Also building</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {otherProducts.map((product, i) => (
+        <div class="reveal" style={`transition-delay: ${i * 60}ms`}>
+          <ProductCard {...product} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="philosophy" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="section-title font-heading text-2xl font-bold mb-8 reveal">Timeline</h2>
+
+    <div class="relative reveal">
+      <!-- Vertical line -->
+      <div class="absolute left-[7px] top-2 bottom-2 w-px bg-zinc-200 dark:bg-zinc-800" aria-hidden="true"></div>
+
+      <div class="space-y-6">
+        {timeline.map((item, i) => (
+          <div class="flex gap-4 items-start" style={`transition-delay: ${i * 60}ms`}>
+            <div class={`w-[15px] h-[15px] rounded-full flex-shrink-0 mt-1 border-2 ${item.date === 'Now' ? 'bg-blue-500 border-blue-500' : 'bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-600'}`} aria-hidden="true"></div>
+            <div>
+              <span class={`font-heading text-xs font-bold uppercase tracking-wider ${item.date === 'Now' ? 'text-blue-600 dark:text-blue-400' : 'text-zinc-400 dark:text-zinc-500'}`}>{item.date}</span>
+              <p class="text-sm text-zinc-700 dark:text-zinc-300 mt-0.5">{item.event}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack — with usage context -->
+  <section id="stack" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="section-title font-heading text-2xl font-bold mb-3 reveal">Stack</h2>
+    <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-8 reveal">Tools and technologies across all products.</p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 reveal">
+      {techStack.map((item) => (
+        <div class="tech-item text-center">
+          <div class="text-sm font-medium text-zinc-800 dark:text-zinc-200">{item.name}</div>
+          <div class="text-[11px] text-zinc-500 dark:text-zinc-500 mt-0.5">{item.use}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Contact — with more context -->
+  <section id="contact" class="max-w-5xl mx-auto px-6 py-16">
+    <div class="reveal">
+      <h2 class="section-title font-heading text-2xl font-bold mb-4">Say hi</h2>
+      <p class="text-zinc-600 dark:text-zinc-400 mb-2 max-w-md">
+        I'm always open to talking about product development, AI tooling, or collaboration.
+      </p>
+      <p class="text-sm text-zinc-500 dark:text-zinc-500 mb-6">
+        Based in Seoul, Korea. Usually respond within a day.
+      </p>
+
+      <div class="flex items-center gap-4">
+        <a
+          href="mailto:bessl.framework@gmail.com"
+          class="cta-btn inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 text-sm font-medium rounded-lg cursor-pointer"
+        >
+          bessl.framework@gmail.com
+        </a>
+        <a
+          href="https://github.com/bessl-co"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-btn inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 text-sm font-medium rounded-lg cursor-pointer"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

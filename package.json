@@ -1,0 +1,20 @@
+{
+  "name": "bessl-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.2.8",
+    "@fontsource-variable/space-grotesk": "^5.2.10",
+    "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+.astro/
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Internal planning / records (NEVER commit)
+HANDOFF.md
+CLAUDE.md
+.claude/
+conversation-logs/
+docs/

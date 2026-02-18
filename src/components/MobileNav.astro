@@ -1,0 +1,42 @@
+---
+const links = [
+  { href: '#products', label: 'Products' },
+  { href: '#philosophy', label: 'Philosophy' },
+  { href: '#stack', label: 'Stack' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<div
+  id="nav-overlay"
+  class="fixed inset-0 bg-black/40 z-40 opacity-0 pointer-events-none transition-opacity duration-300 [&.open]:opacity-100 [&.open]:pointer-events-auto"
+></div>
+
+<div
+  id="mobile-nav"
+  class="fixed top-0 right-0 w-72 h-full z-50 bg-white dark:bg-zinc-900 shadow-2xl translate-x-full transition-transform duration-300 [&.open]:translate-x-0"
+>
+  <div class="flex items-center justify-between p-6 border-b border-zinc-200 dark:border-zinc-800">
+    <span class="font-heading text-lg font-bold">BESSL</span>
+    <button
+      id="close-nav"
+      class="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+      aria-label="Close menu"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="p-6 flex flex-col gap-4">
+    {links.map(({ href, label }) => (
+      <a
+        href={href}
+        class="text-lg font-medium text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
+      >
+        {label}
+      </a>
+    ))}
+  </div>
+</div>
