@@ -1,6 +1,4 @@
 ---
-import Logo from './Logo.astro';
-
 const links = [
   { href: '#products', label: 'Products' },
   { href: '#philosophy', label: 'Philosophy' },
@@ -11,8 +9,7 @@ const links = [
 <nav class="nav-bg fixed top-0 left-0 right-0 z-50" aria-label="Main navigation">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 cursor-pointer" aria-label="BESSL Framework Home">
-      <Logo />
+    <a href="/" class="cursor-pointer" aria-label="BESSL Framework Home">
       <span class="font-heading text-lg font-bold tracking-tight">BESSL Framework</span>
     </a>
 

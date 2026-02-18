@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Colors - Monochrome + Blue */
+  /* Colors - Monochrome */
   --color-zinc-50: #FAFAFA;
   --color-zinc-100: #F4F4F5;
   --color-zinc-200: #E4E4E7;
@@ -15,10 +15,6 @@
   --color-zinc-800: #27272A;
   --color-zinc-900: #18181B;
   --color-zinc-950: #09090B;
-
-  --color-blue-500: #3B82F6;
-  --color-blue-600: #2563EB;
-  --color-blue-700: #1D4ED8;
 
   --color-green-500: #22C55E;
   --color-yellow-500: #EAB308;
@@ -87,7 +83,7 @@ html.dark .tech-item {
 
 html.dark .tech-item:hover {
   background: rgba(39, 39, 42, 0.7);
-  border-color: rgba(59, 130, 246, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
   color: var(--color-zinc-100);
 }
 
@@ -103,12 +99,12 @@ html.dark .tech-item:hover {
 
 .glass-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(37, 99, 235, 0.15);
+  border-color: rgba(0, 0, 0, 0.12);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
 
 html.dark .glass-card:hover {
-  border-color: rgba(59, 130, 246, 0.2);
+  border-color: rgba(255, 255, 255, 0.15);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -170,7 +166,7 @@ html.dark .nav-link::after {
   position: absolute;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(113, 113, 122, 0.08) 0%, transparent 70%);
   border-radius: 50%;
   top: 50%;
   left: 50%;
@@ -192,7 +188,7 @@ html.dark .hero-grid {
 }
 
 html.dark .hero-glow {
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(161, 161, 170, 0.1) 0%, transparent 70%);
 }
 
 /* Status badges */
@@ -256,7 +252,7 @@ html.dark .badge-planning {
 
 .tech-item:hover {
   background: rgba(0, 0, 0, 0.04);
-  border-color: rgba(37, 99, 235, 0.25);
+  border-color: rgba(0, 0, 0, 0.15);
   color: var(--color-zinc-900);
 }
 
